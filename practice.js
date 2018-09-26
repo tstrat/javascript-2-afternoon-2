@@ -18,7 +18,9 @@ var arr = [10,20,30];
 */
 
 //Code Here
-
+function first(arr) {
+  return arr[0];
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -33,6 +35,9 @@ var arr = [40,50,60];
 */
 
 //Code Here
+function last(arr) {
+  return arr[arr.length-1];
+}
 
 
 
@@ -48,7 +53,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 */
 
 //Code Here
-
+function looper(family) {
+  for(let i = 0; i < family.length; i++){
+    alert(family[i]);
+  }
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -63,7 +72,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 */
 
 //Code Here
-
+function reversedLooper(letters) {
+  for(let i = letters.length-1; i >=0 ; i--){
+    alert(letters[i]);
+  }
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -79,7 +92,15 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
 //Code Here
 
-
+function evenFinder(nums) {
+  let rtnarr = []
+  for(let i = 0; i < nums.length ; i++){
+    if (!(nums[i]%2)){
+      rtnarr.push(nums[i])
+    }
+  }
+  return rtnarr
+}
 
 
 
@@ -106,7 +127,18 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 */
 
 //Code Here
-
+function divider(numbersArray) {
+  let evens = []
+  let odds = []
+  for(let i = 0; i < numbersArray.length ; i++){
+    if (numbersArray[i]%2){
+      odds.push(numbersArray[i])
+    } else {
+      evens.push(numbersArray[i])
+    }
+  }
+  return [evens, odds]
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -127,7 +159,15 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
-
+function finder(array) {
+  let rand = getRandomArbitrary()
+  for(let i = 0; i < array.length; i++) {
+    if (array[i] == rand) {
+      return true;
+    }
+  }
+  return false;
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -156,7 +196,25 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
+function removeItem(groceryList, item){
+  if (groceryList && item) {
+    for (let i = groceryList.length; i >=0; i--){
+      if (groceryList[i] === item) {
+        groceryList.splice(i,1)
+      }
+    }
+    return groceryList
+  }
+  return []
+}
 
+function addItem(groceryList, item) {
+  if (groceryList && item) {
+    groceryList.push(item)
+    return groceryList
+  }
+  return []
+}
 
 
 ////////// PROBLEM 9 //////////
@@ -166,7 +224,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
-
+function maker() {
+  let rtn = []
+  for(let i = 1; i <= 215; i++){
+    rtn.push(i)
+  }
+  return rtn
+}
 
 
 ////////// PROBLEM 10 //////////
@@ -182,7 +246,13 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
-
+function addTen(numbers) {
+  let rtn = []
+  for (let i = 0; i < numbers.length; i++) {
+    rtn[i] = parseInt(numbers[i]) + 10
+  }
+  return rtn
+}
 
 
 ////////// PROBLEM 11 //////////
@@ -207,7 +277,9 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function longer(arr1, arr2) {
+  return arr1 > arr2 ? arr1 : arr2
+}
 
 
 /*
@@ -219,7 +291,17 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function both(arr1, arr2) {
+  let rtn = []
+  let rtnIndex = 0
+  for(let i = 0; i < Math.min(arr1.length, arr2.length); i++) {
+    if (arr1.includes(arr2[i])){
+      rtn[rtnIndex] = arr2[i]
+      rtnIndex++
+    }
+  }
+  return rtn
+}
 
 
 ////////// PROBLEM 12 //////////
@@ -259,8 +341,12 @@ var colt = {
 */
 
 //Code Here
+devMountainEmployees.push(tyler)
+devMountainEmployees.push(cahlan)
+devMountainEmployees.push(ryan)
+devMountainEmployees.push(colt)
 
-
+console.log(devMountainEmployees.length)
 
 /*
   Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
@@ -268,7 +354,7 @@ var colt = {
 */
 
 //Code Here
-
+devMountainEmployees.splice(devMountainEmployees.indexOf(cahlan),1)
 
 
 ////////// PROBLEM 13 //////////
@@ -280,7 +366,7 @@ var colt = {
 */
 
 //Code Here
-
+let users = []
 
 
 /*
@@ -300,7 +386,7 @@ var user1 = {
 
 //Code Here
 
-
+users.push(user1)
 
 /*
   Now you have a very common data structure. 
@@ -313,8 +399,9 @@ var user1 = {
 */
 
 //Code Here
-
-
+users.push(user1)
+users[1].name="Travis"
+users.splice(users.indexOf(user1),1)
 
 /*
   The activity we just did is very much how data works in 'the real world'.
